@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.room.Entity;
 
 import java.util.Calendar;
 
@@ -28,7 +29,7 @@ public class Alarm {
 //                     boolean recurring, boolean monday, boolean tuesday, boolean wednesday,
 //                     boolean thursday, boolean friday, boolean saturday, boolean sunday)
 
-    public Alarm (int alarmId, int hour, int minute, String title, boolean started) {
+    public Alarm(int alarmId, int hour, int minute, String title, boolean b, boolean recurringChecked, boolean monChecked, boolean tueChecked, boolean wedChecked, boolean thuChecked, boolean friChecked, boolean checked, boolean started) {
             this.alarmId = alarmId;
             this.hour = hour;
             this.minute = minute;
