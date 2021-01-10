@@ -44,20 +44,16 @@ public class RingActivity extends AppCompatActivity {
                 calendar.setTimeInMillis(System.currentTimeMillis());
                 calendar.add(Calendar.MINUTE, 10);
 
+                //public Alarm(int alarmId, int hour, int minute, boolean started)
+                //public Alarm(int alarmId, int hour, int minute, String title, boolean started,
+                //                    boolean recurring, boolean monday, boolean tuesday, boolean wednesday,
+                //                    boolean thursday, boolean friday, boolean saturday, boolean sunday)
+
                 Alarm alarm = new Alarm(
                         new Random().nextInt(Integer.MAX_VALUE),
                         calendar.get(Calendar.HOUR_OF_DAY),
                         calendar.get(Calendar.MINUTE),
-                        "Snooze",
-                        true,
-                        false,
-                        false,
-                        false,
-                        false,
-                        false,
-                        false,
-                        false,
-                        false
+                        true
                 );
 
                 alarm.schedule(getApplicationContext());

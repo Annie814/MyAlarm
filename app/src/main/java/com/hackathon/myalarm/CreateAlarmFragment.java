@@ -16,7 +16,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
+//import androidx.lifecycle.ViewModelProviders;
 
 import com.hackathon.myalarm.Alarm;
 import com.hackathon.myalarm.BindView;
@@ -51,7 +53,7 @@ public class CreateAlarmFragment extends Fragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        createAlarmViewModel = ViewModelProviders.of(this).get(CreateAlarmViewModel.class);
+        createAlarmViewModel = new ViewModelProvider(this).get(CreateAlarmViewModel.class);
     }
 
     @Nullable
@@ -89,21 +91,26 @@ public class CreateAlarmFragment extends Fragment {
     private void scheduleAlarm() {
         int alarmId = new Random().nextInt(Integer.MAX_VALUE);
 
-        Alarm alarm = new Alarm(
+        Alarm alarm = new Alarm (
                 alarmId,
                 TimePickerUtil.getTimePickerHour(timePicker),
-                TimePickerUtil.getTimePickerMinute(timePicker),
-                title.getText().toString(),
-                true,
-                recurring.isChecked(),
-                mon.isChecked(),
-                tue.isChecked(),
-                wed.isChecked(),
-                thu.isChecked(),
-                fri.isChecked(),
-                sat.isChecked(),
-                sun.isChecked()
+                TimePickerUtil.getTimePickerMinute(timePicker),true
         );
+//        Alarm alarm = new Alarm(
+//                alarmId,
+//                TimePickerUtil.getTimePickerHour(timePicker),
+//                TimePickerUtil.getTimePickerMinute(timePicker),
+//                title.getText().toString(),
+//                true,
+//                recurring.isChecked(),
+//                mon.isChecked(),
+//                tue.isChecked(),
+//                wed.isChecked(),
+//                thu.isChecked(),
+//                fri.isChecked(),
+//                sat.isChecked(),
+//                sun.isChecked()
+//        );
 
         createAlarmViewModel.insert(alarm);
 
