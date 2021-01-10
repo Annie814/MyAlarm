@@ -21,6 +21,7 @@
             app:layout_constraintTop_toTopOf="parent"
             android:gravity="center_horizontal" />
 
+
         <LinearLayout
             android:id="@+id/fragment_createalarm_timePickerLayout"
             android:layout_width="match_parent"
@@ -28,29 +29,47 @@
             android:orientation="horizontal"
             app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_scheduleAlarmHeading">
 
+<!--            <TextView-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:layout_weight="0.4"-->
+<!--                android:text="Alarm Time"-->
+<!--                android:textAlignment="center"-->
+<!--                android:textAppearance="@style/TextAppearance.AppCompat.Medium" />-->
+
+            <TimePicker
+                android:id="@+id/fragment_createalarm_timePicker"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.6"
+                android:timePickerMode="clock"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout" />
         </LinearLayout>
 
-<!--        <EditText-->
-<!--            android:id="@+id/fragment_createalarm_title"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginTop="32dp"-->
-<!--            android:hint="Alarm Title"-->
-<!--            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout"-->
-<!--            tools:layout_editor_absoluteX="0dp" />-->
 
-
-        <CheckBox
-            android:id="@+id/fragment_createalarm_recurring"
+        <LinearLayout
+            android:id="@+id/fragment_createalarm_detailsLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="4dp"
-            android:layout_marginLeft="4dp"
-            android:checked="false"
-            android:text="Recurring Alarm"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="514dp"
-            tools:ignore="MissingConstraints" />
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout">
+
+            <CheckBox
+                android:id="@+id/fragment_createalarm_recurring"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:text="Recurring Alarm"
+                app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout" />
+
+            <!--        <EditText-->
+            <!--            android:id="@+id/fragment_createalarm_title"-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:hint="Alarm Title"-->
+            <!--            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_timePickerLayout" />-->
+        </LinearLayout>
 
         <LinearLayout
             android:id="@+id/fragment_createalarm_recurring_options"
@@ -58,7 +77,7 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:visibility="gone"
-            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_recurring">
+            app:layout_constraintTop_toBottomOf="@+id/fragment_createalarm_detailsLayout">
 
             <CheckBox
                 android:id="@+id/fragment_createalarm_checkMon"
@@ -112,28 +131,6 @@
             android:text="Schedule Alarm"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:layout_editor_absoluteX="133dp" />
-
-        <TimePicker
-            android:id="@+id/fragment_createalarm_timePicker"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.6"
-            android:timePickerMode="clock"
-            tools:layout_editor_absoluteX="0dp"
-            tools:layout_editor_absoluteY="125dp"
-            tools:ignore="MissingConstraints" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_weight="0.4"
-            android:text="Alarm Time"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            tools:layout_editor_absoluteX="159dp"
-            tools:layout_editor_absoluteY="73dp"
-            tools:ignore="MissingConstraints" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
